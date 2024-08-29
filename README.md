@@ -114,3 +114,5 @@ The current schema has several limitations:
 
 * **Role Constraints**: The schema restricts users to predefined roles for people (instructor, classmate, other). This limits flexibility for users who may need to assign custom or additional roles.
 * **Lack of Triggers**: The design does not include triggers, which could be beneficial. For instance, users cannot directly INSERT data into the `instructors` or `classmates` views due to the absence of appropriate triggers to handle such operations.
+* **Single-user Limitation**: The design supports only one user on a single device, so it doesn’t accommodate multiple users or multiple devices.
+
