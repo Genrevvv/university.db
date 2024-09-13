@@ -105,7 +105,7 @@ As shown in the diagram:
 
 ## Optimizations
 
-This database may encounter typical queries such as those in `queries.sql`, like searching for a person by name or role, searching a course by title, and searching a coursework by type or date. Therefore, indexes are created for the `first_name`, `last_name`, and `role` columns from the `people` table, the `title` column from the `courses` table, and the `type` and `date` columns from the `courseworks` table.
+This database may encounter typical queries such as those in `queries.sql`, like searching for a person by name or role, searching a course by title, and searching a coursework by type or date. Therefore, indexes are created for the `first_name`, `last_name`, and `role` columns from the `people` table, the `title` and `course_code` column from the `courses` table, and the `type` and `date` columns from the `courseworks` table.
 
 Additionally, users might want to check their total expenses by year level or by course, so views `expenses_by_year_level` and `expenses_by_course` are created. Lastly, users might want to check who their instructors and classmates are in the `people` table, so views `instructors` and `classmates` were created.
 
