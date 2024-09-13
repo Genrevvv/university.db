@@ -5,19 +5,20 @@ CREATE TABLE "people" (
     "last_name" TEXT NOT NULL,
     "gender" TEXT NOT NULL CHECK("gender" IN ('male', 'female')),
     "birthdate" NUMERIC,
-    "role" TEXT NOT NULL CHECK("role" IN ("instructor", "classmate", "other")),
+    "role" TEXT NOT NULL CHECK("role" IN ('instructor', 'classmate', 'other')),
     PRIMARY KEY("id")
 );
 
 -- Represent the courses you took or will take
 CREATE TABLE "courses" (
     "id" INTEGER,
-    "department" TEXT NOT NULL,
+    "course_code" TEXT UNIQUE NOT NULL,
     "title" TEXT NOT NULL,
+    "units" REAL CHECK("units" > 0) NOT NULL,
     "semester" INTEGER NOT NULL,
     "year_level" INTEGER NOT NULL,
     PRIMARY KEY("id"),
-    UNIQUE("semester", "year_level", "title")
+    UNIQUE("course_code", "title", "semester", "year_level")
 );
 
 -- Represent a relationship for instructors and courses
