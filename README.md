@@ -50,8 +50,9 @@ All columns in the `people` table are required and hence should have the `NOT NU
 The `courses` table includes:
 
 * `id`, which serves as the unique identifier for a course, is of type `INTEGER`. This column has the `PRIMARY KEY` constraint applied.
-* `department`, which specifies the department the course is part of, is of type `TEXT`.
+* `course_code`, which specifies the course code for the sepecific course, is of type `TEXT`. This column has a `UNIQUE` constraint ensuring that no course will have the same code.
 * `title`, which specifies the title of the course, is of type `TEXT`.
+* `units`, which specifies the units of the course, is of type `REAL`. This column has a `CHECK` constraint ensuring that `units` are positive value.
 * `semester`, which specifies the semester in which the course was held, is of type `INTEGER`. In the Philippines, we use numbers to denote semesters due to having only a few seasons, unlike other countries.
 * `year_level`, which specifies the year level when the courses were taken, is of type `INTEGER`.
 
@@ -114,5 +115,3 @@ The current schema has several limitations:
 
 * **Role Constraints**: The schema restricts users to predefined roles for people (instructor, classmate, other). This limits flexibility for users who may need to assign custom or additional roles.
 * **Lack of Triggers**: The design does not include triggers, which could be beneficial. For instance, users cannot directly INSERT data into the `instructors` or `classmates` views due to the absence of appropriate triggers to handle such operations.
-* **Single-user Limitation**: The schema is limited to being used by only one person, for it's designed to be a personal database for individual use.
-
