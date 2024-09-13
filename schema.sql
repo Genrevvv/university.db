@@ -58,6 +58,7 @@ CREATE TABLE "expenses" (
 CREATE INDEX "people_name_search" ON "people"("first_name", "last_name");
 CREATE INDEX "people_role_search" ON "people"("role");
 CREATE INDEX "course_title_search" ON "courses"("title");
+CREATE INDEX "course_code_search" ON "courses"("course_code");
 CREATE INDEX "coursework_search" ON "courseworks"("type", "date");
 
 -- View to fetch data about instructors
