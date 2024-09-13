@@ -44,13 +44,13 @@ VALUES  ('Carter', 'Zenke', 'male', NULL, 'instructor'),
         ('Charlie', 'Card', 'male', NULL, 'classmate');
 
 -- Add a course
-INSERT INTO "courses" ("department", "title", "semester", "year_level")
-VALUES ('Computer Science', 'Introduction to Databases with SQL', 1, 1);
+INSERT INTO "courses" ("course_code", "title", "units", "semester", "year_level")
+VALUES ('CS50 SQL', 'Introduction to Databases with SQL', 4.0, 1, 1);
 
 -- Add a coursework
 INSERT INTO "courseworks" ("course_id", "title", "type", "grade")
 VALUES ((SELECT "id" FROM "courses"
-         WHERE "department" = 'Computer Science'
+         WHERE "course_code" = 'CS50 SQL'
          AND "title" = 'Introduction to Databases with SQL'
          AND "semester" = 1
          AND "year_level" = 1),
@@ -59,7 +59,7 @@ VALUES ((SELECT "id" FROM "courses"
 -- Add an expense
 INSERT INTO "expenses" ("course_id", "year_level", "name", "amount")
 VALUES ((SELECT "id" FROM "courses"
-         WHERE "department" = 'Computer Science'
+         WHERE "course_code" = 'CS50 SQL'
          AND "title" = 'Introduction to Databases with SQL'
          AND "semester" = 1
          AND "year_level" = 1),
@@ -80,7 +80,7 @@ AND "role" = 'classmate';
 
 -- Remove a course
 DELETE FROM "courses"
-WHERE "department" = 'Computer Science'
+WHERE "course_code" = 'CS50 SQL'
 AND "title" = 'Introduction to Databases with SQL'
 AND "semester" = 1
 AND "year_level" = 1
@@ -89,7 +89,7 @@ AND "year_level" = 1
 DELETE FROM "courseworks"
 WHERE "course_id" = (
     SELECT "id" FROM "courses"
-    WHERE "department" = 'Computer Science'
+    WHERE "course_code" = 'CS50 SQL'
     AND "title" = 'Introduction to Databases with SQL'
     AND "semester" = 1
     AND "year_level" = 1
@@ -101,7 +101,7 @@ AND "type" = 'activity';
 DELETE FROM "expenses"
 WHERE "course_id" = (
     SELECT "id" FROM "courses"
-    WHERE "department" = 'Computer Science'
+    WHERE "course_code" = 'CS50 SQL'
     AND "title" = 'Introduction to Databases with SQL'
     AND "semester" = 1
     AND "year_level" = 1
